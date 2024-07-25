@@ -62,7 +62,7 @@ $mpdf->Output('formdata.pdf', 'D');
 
 
   $mpdf = new \Mpdf\Mpdf();
-  // $mpdf->WriteHTML(utf8_encode($pdfcontent));
+  // $mpdf->WriteHTML(utf8_encode($pdfcontent)); // Old function not supported in above version of php 8
   $mpdf->WriteHTML(mb_convert_encoding($pdfcontent, 'UTF-8', 'auto'));
   $mpdf->Output('formdata.pdf', 'D');
 ?>
