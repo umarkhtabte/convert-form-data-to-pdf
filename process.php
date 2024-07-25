@@ -11,6 +11,7 @@
   }
   $pdfcontent .= "</tbody></table>";
   $mpdf = new \Mpdf\Mpdf();
-  $mpdf->WriteHTML(utf8_encode($pdfcontent));
+  // $mpdf->WriteHTML(utf8_encode($pdfcontent));
+  $mpdf->WriteHTML(mb_convert_encoding($pdfcontent, 'UTF-8', 'auto'));
   $mpdf->Output('formdata.pdf', 'D');
 ?>
