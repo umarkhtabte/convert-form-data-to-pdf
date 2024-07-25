@@ -16,7 +16,7 @@ This project converts form data into a PDF on submit and allows the user to down
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-repository.git
+   git clone https://github.com/umarkhtabte/convert-form-data-to-pdf
    cd your-repository
    ```
 
@@ -30,7 +30,7 @@ This project converts form data into a PDF on submit and allows the user to down
 
 3. **Create `data-form.php`:**
 
-   ```php
+   ```
 
    <!DOCTYPE html>
 <html lang="en">
@@ -94,15 +94,11 @@ This project converts form data into a PDF on submit and allows the user to down
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-?>
-   ```
+```
 
 4. **Create `process.php`:**
-
-   ```php
-   <?php
+```
     $path = (getenv("MPDF_ROOT")) ? getenv("MPDF_ROOT") : __DIR__;
-//   var_dump($path);die;
   require_once $path . "/vendor/autoload.php";
   $pdfcontent = '<table class="form-data"><thead><tr> </tr></thead><tbody>';
   foreach($_POST as $key =>$value){
@@ -112,9 +108,8 @@ This project converts form data into a PDF on submit and allows the user to down
   $mpdf = new \Mpdf\Mpdf();
   $mpdf->WriteHTML(utf8_encode($pdfcontent));
   $mpdf->Output('formdata.pdf', 'D');
-   ?>
-   ```
 
+```
 ## Usage
 
 1. **Open `data-form.php` in your browser.**
@@ -125,7 +120,3 @@ This project converts form data into a PDF on submit and allows the user to down
 
 - This project uses the [mPDF library](https://github.com/mpdf/mpdf) for generating PDFs.
 - Created by Umar Khtab (umarkhtab.te@gmail.com).
-
----
-
-You can adjust the repository URL and other details as needed.
